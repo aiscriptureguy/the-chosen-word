@@ -1,4 +1,3 @@
-import './styles/main.css';
 import { register, init } from './router.js';
 import { renderShell } from './components/shell.js';
 import { renderHome } from './pages/home.js';
@@ -14,7 +13,7 @@ let catalog = null;
 
 async function loadCatalog() {
   if (catalog) return catalog;
-  const res = await fetch(import.meta.env.BASE_URL + 'data/catalog.json');
+  const res = await fetch('data/catalog.json');
   if (!res.ok) throw new Error(`Could not load catalog (${res.status})`);
   catalog = await res.json();
   return catalog;
